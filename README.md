@@ -85,3 +85,24 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 ---
 
 Built with ❤️ using React Router.
+
+## Payments: PayPal and Cash App
+
+Set these environment variables in a `.env` file at the project root (Vite):
+
+```
+VITE_PAYPAL_CLIENT_ID=your_paypal_client_id
+VITE_CASHAPP_TAG=your_cashtag_without_dollar
+```
+
+- VITE_PAYPAL_CLIENT_ID: Create a PayPal REST app and copy the Client ID.
+- VITE_CASHAPP_TAG: Your Cash App $Cashtag without the `$`, e.g. `johnsmith`.
+
+Usage:
+
+- PayPal renders native buttons via the PayPal JS SDK. Successful payments will show an alert in this demo.
+- Cash App button opens your Cash App profile in a new tab. Users complete payment manually; confirm the order off-platform.
+
+Security notes:
+
+- For production, create orders on your server and verify webhooks (PayPal `CHECKOUT.ORDER.APPROVED`, capture details). The current implementation is client-only for simplicity.
